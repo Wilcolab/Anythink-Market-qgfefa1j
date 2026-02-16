@@ -13,9 +13,11 @@ jobs:
       - name: Upgrade Docker client
         run: |
           sudo apt-get update
-          sudo apt-get install --only-upgrade docker-ce docker-ce-cli containerd.io
-          # Verify the upgrade was successful
+          sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+          sudo systemctl restart docker
           docker --version
+          # Wait for Docker to be ready
+          sleep 5
           
       - name: Check out project
         uses: actions/checkout@v2
