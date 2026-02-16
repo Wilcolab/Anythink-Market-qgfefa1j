@@ -33,8 +33,4 @@ jobs:
         with:
           engine: ${{ secrets.WILCO_ENGINE_URL }}
       
-      - name: Install latest Docker
-        run: |
-          sudo apt-get remove docker docker-engine docker.io containerd runc
-          sudo apt-get update
-          sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+      
