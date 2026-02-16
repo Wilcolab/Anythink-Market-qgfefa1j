@@ -10,6 +10,11 @@ jobs:
     name: Pr checks
 
     steps:
+      - name: Upgrade Docker client
+        run: |
+          sudo apt-get update
+          sudo apt-get install --only-upgrade docker-ce docker-ce-cli containerd.io
+          
       - name: Check out project
         uses: actions/checkout@v2
 
